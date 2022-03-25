@@ -7,19 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <title>Hello, world!</title>
+    <title>E-Comm</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <!-- Optional theme -->
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -35,6 +31,42 @@
       height: 500px;
       padding-top: 100px;
     }
+    
+    .slider-img{
+        height: 400px!important;
+    }
+
+    .carousel-caption{
+        border-radius: 20px;
+        background-color: #232e235c!important;
+    }
+
+    .custom-product{
+        height: 600px;
+    }
+
+    .trending-image{
+        height: 100px;
+    }
+
+    .trending-item{
+        float: left;
+        width: 25%;;
+    }
+    
+    .trending-wrapper{
+        margin: 30px;
+        
+    }
+
+    .custom-detail{
+        margin: 50px;
+    }
+
+    .detail-img{
+        height: 300px;
+    }
+    
 </style>
 
 </html>
