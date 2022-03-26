@@ -27,11 +27,10 @@
 
 </body>
 <style>
-    .custom-login{
-      height: 500px;
-      padding-top: 100px;
+    .custom-login {
+        min-height: 500px;
+        padding-top: 100px;
     }
-    
     .slider-img{
         height: 400px!important;
     }
@@ -41,9 +40,9 @@
         background-color: #232e235c!important;
     }
 
-    .custom-product{
-        height: 600px;
-    }
+    /* .custom-product{
+        min-height: 600px;
+    } */
 
     .trending-image{
         height: 100px;
@@ -66,6 +65,11 @@
     .detail-img{
         height: 300px;
     }
+    .searched-item{
+        float: left;
+        width: 25%;
+    }
+    
     
 </style>
 

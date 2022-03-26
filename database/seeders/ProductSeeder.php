@@ -43,6 +43,13 @@ class ProductSeeder extends Seeder
                 'description' => "The Huawei P50 Pro are Harmony-based smartphones manufactured by Huawei.",
                 'gallery' => 'https://smartshop.hu/Huawei_P50_Pro_okostelefon_-_arany-fekete_256GB_8GB_RAM_DualSIM-i1309691.png'
             ],
+            [
+                'name' => 'LG 43UP76703LB Smart LED Television',
+                'price' => '383$',
+                'category' => 'tv',
+                'description' => "LG UHD TVs exceed your expectations every time. You can experience true-to-life picture quality and vibrant colors with four times the number of pixels at Full HD resolution.",
+                'gallery' => 'https://s13emagst.akamaized.net/products/40005/40004951/images/res_6547dd9ddb6a0656003501add42298f3.jpg?width=450&height=450&hash=88560745CC0B5D0BE3CB5AF5B7158E00'
+            ],
         ]);
     }
 }
