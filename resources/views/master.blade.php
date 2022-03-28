@@ -69,7 +69,18 @@
         float: left;
         width: 25%;
     }
-    
+    .cart-items{
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding-bottom: 20px
+    }
+    .cart-delete{
+        display: flex;
+        justify-content: flex-end;
+    }
     
 </style>
 
