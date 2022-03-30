@@ -75,13 +75,21 @@
         align-items: center;    
         border-bottom: 1px solid #ccc;
         margin-bottom: 20px;
-        padding-bottom: 20px
+        padding-bottom: 20px;
     }
     .cart-delete{
         display: flex;
         justify-content: flex-end;
     }
-    
+    #total-price>td{
+        border-top: 1px solid black;
+        font-weight: bold;
+    }
+    .order-items{
+        display: flex;
+        margin:20px 0;
+        align-items: center;
+    }
 </style>
 
 </html>

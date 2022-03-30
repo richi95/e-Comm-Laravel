@@ -21,6 +21,7 @@
                     </div>
                 </div>
             @endforeach
+            <a href="/ordernow" class="btn btn-success">Order Now</a>
         </div>
     </div>
 @endsection

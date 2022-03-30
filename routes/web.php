@@ -32,4 +32,7 @@ Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
 Route::get('cartlist',[ProductController::class,'cartList']);
 Route::get('/logout', [UserController::class, 'logout']);
 Route::get('/cartdelete/{id}', [ProductController::class, 'cartDelete']);
+Route::get('/ordernow', [ProductController::class, 'orderNow']);
+Route::post('/orderplace', [ProductController::class, 'orderPlace']);
+Route::get('/myorders', [ProductController::class, 'orders']);
 
