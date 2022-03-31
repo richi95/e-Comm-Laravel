@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -26,5 +27,16 @@ class UserController extends Controller
     {
         Session::remove('user');
         return redirect('login');
+    }
+    function signUp(UserRequest $req){
+  
+        
+        $validated = $req->validated();
+        $validated['password'] = Hash::make($validated['password']);
+        User::create($validated);
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'content' => 'Successful registration'
+        ]);
     }
 }

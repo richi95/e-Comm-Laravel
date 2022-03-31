@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
@@ -81,6 +82,10 @@ class ProductController extends Controller
     
     function orderPlace(Request $req)
     {
+        $validated = $req->validate([
+            'address' => 'required|min:20|max:100',
+            'payment' => 'required'
+        ]);
         $userId = Session::get('user')['id'];
         $allCart = Cart::where('user_id', $userId)->get();
         foreach ($allCart as $cart) 
@@ -89,13 +94,13 @@ class ProductController extends Controller
             $order->products_id = $cart->product_id;
             $order->user_id = $cart->user_id;
             $order->status = "pending";
-            $order->payment_method = $req->payment;
+            $order->payment_method = $validated['payment'];
             $order->payment_status = "pending";
-            $order->address = $req->address;
+            $order->address = $validated['address'];
             $order->save();
             Cart::where('user_id', $userId)->delete();
         }
-        return redirect('/');
+        return redirect()->back();
     }
 
     function orders()
@@ -108,4 +113,5 @@ class ProductController extends Controller
 
         return view('myorders', ['orders' => $products]);
     }
+    
 }

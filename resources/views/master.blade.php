@@ -27,7 +27,7 @@
 
 </body>
 <style>
-    .custom-login {
+    .custom-login, .custom-signup {
         min-height: 500px;
         padding-top: 100px;
     }

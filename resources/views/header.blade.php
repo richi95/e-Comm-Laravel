@@ -45,7 +45,8 @@ if(Session::has('user'))
                         </ul>
                     </li>
                 @else
-                <li><a href="/logout">Login</a></li>
+                <li><a href="/logout">Sign in</a></li>
+                <li><a href="/signup">Sign up</a></li>
                 @endif
                 {{-- <li><a href="#">Cart({{Session::has('user') ? $total: 0}})</a></li> --}}
             </ul>
