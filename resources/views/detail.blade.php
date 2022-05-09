@@ -1,7 +1,6 @@
-@extends('master')
+@extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="row custom-detail">
+    <div class="container custom-detail-content">
             <div class="col-sm-6">
                 <img class="detail-img" src="{{ $product->gallery }}" alt="gallery">
             </div>
@@ -24,6 +23,5 @@
                 <br>
                 <button class="btn btn-success">Buy Now</button>
             </div>
-        </div>
     </div>
 @endsection

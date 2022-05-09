@@ -14,8 +14,8 @@ class ProductController extends Controller
 {
     function index()
     {
-        $data= Product::all();
-        return view('product', ['product'=> $data]);
+        $data = Product::all();
+        return view('product', ['product' => $data]);
     }
     function detail($id)
     {
@@ -24,48 +24,46 @@ class ProductController extends Controller
     }
     function search(Request $req)
     {
-        $data = Product::where('name', 'like' ,'%'.$req->search.'%')
-        ->orwhere('category', 'like' ,'%'.$req->search.'%')->get();
-        
-        return view('search', ['products'=> $data]);
+        $data = Product::where('name', 'like', '%' . $req->search . '%')
+            ->orwhere('category', 'like', '%' . $req->search . '%')->get();
+
+        return view('search', ['products' => $data]);
     }
     function addToCart(Request $req)
     {
-        if($req->session()->has('user'))
-        {
+        if ($req->session()->has('user')) {
             $cart = new Cart;
             $cart->user_id = $req->session()->get('user')['id'];
             $cart->product_id = $req->product_id;
             $cart->save();
-            
+
             return redirect('/');
-        }else{
+        } else {
             return redirect('/login');
         }
     }
     function cartItem()
     {
-        if(Session::has('user'))
-        {
-            $userId=Session::get('user')['id'];
-            return Cart::where('user_id', $userId)->count();            
+        if (Session::has('user')) {
+            $userId = Session::get('user')['id'];
+            return Cart::where('user_id', $userId)->count();
         }
     }
     function cartList()
     {
-        $userId=Session::get('user')['id'];
+        $userId = Session::get('user')['id'];
         $products = DB::table('cart')
-        ->join('products','cart.product_id','=','products.id')
-        ->where('cart.user_id',$userId)
-        ->select('products.*')
-        ->get();
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->where('cart.user_id', $userId)
+            ->select('products.*')
+            ->get();
 
-        return view('cartlist', ['products'=>$products]);
+        return view('cartlist', ['products' => $products]);
     }
 
     function cartDelete($id)
     {
-        Cart::where('product_id',$id)->delete();
+        Cart::where('product_id', $id)->delete();
         return redirect()->back();
     }
 
@@ -73,23 +71,22 @@ class ProductController extends Controller
     {
         $userId = Session::get('user')['id'];
         $total = DB::table('cart')
-        ->join('products','cart.product_id','=','products.id')
-        ->where('cart.user_id',$userId)
-        ->sum('products.price');
-        
-        return view('ordernow', ['total'=>$total]);
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->where('cart.user_id', $userId)
+            ->sum('products.price');
+
+        return view('ordernow', ['total' => $total]);
     }
-    
-    function orderPlace(Request $req)
+
+    function orderPlace(Request $request)
     {
-        $validated = $req->validate([
-            'address' => 'required|min:20|max:100',
+        $validated = $request->validate([
+            'address' => 'required|min:5|max:100',
             'payment' => 'required'
-        ]);
+        ]);        
         $userId = Session::get('user')['id'];
         $allCart = Cart::where('user_id', $userId)->get();
-        foreach ($allCart as $cart) 
-        {
+        foreach ($allCart as $cart) {
             $order = new Order;
             $order->products_id = $cart->product_id;
             $order->user_id = $cart->user_id;
@@ -107,11 +104,10 @@ class ProductController extends Controller
     {
         $userId = Session::get('user')['id'];
         $products = DB::table('orders')
-        ->join('products','orders.products_id','=','products.id')
-        ->where('orders.user_id',$userId)
-        ->get();
+            ->join('products', 'orders.products_id', '=', 'products.id')
+            ->where('orders.user_id', $userId)
+            ->get();
 
         return view('myorders', ['orders' => $products]);
     }
-    
 }

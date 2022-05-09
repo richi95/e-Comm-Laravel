@@ -1,6 +1,6 @@
-@extends('master')
+@extends('layouts.app')
 @section('content')
-    <div class="custom-product">
+    <div class="container custom-carusel-content">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -34,7 +34,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        {<div class="trending-wrapper ">
+        <div class="trending-wrapper ">
             <h3>Trending Wrapper</h3>
             @foreach ($product as $item)
                 <div class="trending-item">

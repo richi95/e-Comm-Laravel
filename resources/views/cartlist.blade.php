@@ -1,10 +1,10 @@
-@extends('master')
+@extends('layouts.app')
 @section('content')
-    <div class="col-sm-10">
+    <div class="container custom-cartlist-content">
         <div class="trending-wrapper">
             <h4>Cart List</h4>
             @foreach ($products as $item)
-                <div class="row cart-items">
+                <div class="cart-items">
                     <div class="col-sm-4">
                         <a href="/detail/{{ $item->id }}">
                             <img class="trending-image" src="{{ $item->gallery }}" alt="gallery">
@@ -20,8 +20,8 @@
                         <a href="/cartdelete/{{ $item->id }}" class="btn btn-danger">Remove to Cart</a>
                     </div>
                 </div>
-            @endforeach
-            <a href="/ordernow" class="btn btn-success">Order Now</a>
+                @endforeach
+                <a href="/ordernow" class="btn btn-success">Order Now</a>
         </div>
     </div>
 @endsection

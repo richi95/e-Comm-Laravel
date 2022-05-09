@@ -28,10 +28,9 @@ class UserController extends Controller
         Session::remove('user');
         return redirect('login');
     }
-    function signUp(UserRequest $req){
+    function signUp(UserRequest $request){
   
-        
-        $validated = $req->validated();
+        $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
         User::create($validated);
         return redirect()->back()->with('message', [

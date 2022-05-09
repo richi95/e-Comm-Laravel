@@ -1,6 +1,6 @@
-@extends('master')
+@extends('layouts.app')
 @section('content')
-    <div class="custom-product">
+    <div class="container custom-search-content">
         <div class="trending-wrapper ">
             <h3>Result for Products</h3>
             @foreach ($products as $item)
